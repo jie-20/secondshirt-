@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二手衣柜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      background: #fff0f5;
+      color: #333;
+    }
+    header {
+      background: #ffe4f2;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-bottom: 3px dotted #f8bbd0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: #fce4ec;
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 20px;
+      color: #d81b60;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background: #f8bbd0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border: 2px dashed #f8bbd0;
+      position: relative;
+    }
+    .item img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .details {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .details h3 {
+      margin: 0.2rem 0;
+      font-size: 1rem;
+      color: #c2185b;
+    }
+    .soldout {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #d81b60;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #fff0f5;
+      border-top: 2px dashed #f8bbd0;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #f8bbd0;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #880e4f;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function filterCategory(category) {
+      const items = document.querySelectorAll('.item');
+      items.forEach(item => {
+        const cat = item.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>🐰 二手衣柜 🌸</header>
+  <nav>
+    <button onclick="filterCategory('all')">全部</button>
+    <button onclick="filterCategory('top')">上衣</button>
+    <button onclick="filterCategory('dress')">连衣裙</button>
+    <button onclick="filterCategory('skirt')">半身裙</button>
+  </nav>
+  <div class="container">
+    <div class="item" data-category="top">
+      <img src="https://via.placeholder.com/300x400?text=上衣1" alt="上衣1" />
+      <div class="details">
+        <h3>白色棉质上衣</h3>
+        <p>价格：RM18<br>尺码：S<br>品牌：UNIQLO<br>描述：轻薄透气，适合日常穿搭。</p>
+      </div>
+    </div>
+    <div class="item" data-category="dress">
+      <img src="https://via.placeholder.com/300x400?text=连衣裙1" alt="连衣裙1" />
+      <div class="details">
+        <h3>碎花连衣裙</h3>
+        <p>价格：RM25<br>尺码：M<br>品牌：ZARA<br>描述：可爱风格，几乎全新。</p>
+      </div>
+      <div class="soldout">已售完</div>
+    </div>
+    <div class="item" data-category="skirt">
+      <img src="https://via.placeholder.com/300x400?text=半身裙1" alt="半身裙1" />
+      <div class="details">
+        <h3>格子半身裙</h3>
+        <p>价格：RM15<br>尺码：S<br>品牌：H&M<br>描述：校园风，九成新。</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    📸 <a class="btn" href="https://www.instagram.com/moookieee.cute?igsh=OWt5OTFzMHl2MHFt" target="_blank">Follow on Instagram</a><br/>
+    💖 关注我 IG：<a href="https://www.instagram.com/moookieee.cute" target="_blank">@moookieee.cute</a><br/>
+    © 2025 L's Closet. With 🌸 & 🐰
+  </footer>
+</body>
+</html>
